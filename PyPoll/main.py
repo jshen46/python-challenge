@@ -30,7 +30,7 @@ with open(filepath,'r') as csvfile:
             candidates[candidate_name] = 1
         # print(f"{candidates}: {candidate_name}")
 
-# total votes calculate
+    # total votes calculate
     total_votes=len(Ballot_ID)
     output+=(f"Total Votes: {total_votes}\n")
 
@@ -38,14 +38,14 @@ with open(filepath,'r') as csvfile:
     for candidate,votes in candidates.items():
         percent = (votes/total_votes) * 100
         output+=(f"{candidate}:{percent:.3f}% ({votes})\n")
-output+=("----------------------------\n")    
-# winner of election    
+    output+=("----------------------------\n")    
+    # winner of election    
 
-winner=max(candidates, key = lambda x:candidates[x])
-output+=(f"Winner: {winner}\n")
+    winner=max(candidates, key = lambda x:candidates[x])
+    output+=(f"Winner: {winner}\n")
 
-#print(f"Winner:{winner}")
-output+=("----------------------------")
+    #print(f"Winner:{winner}")
+    output+=("----------------------------")
 
 with open(pollanalysis,'w') as text_file:
     text_file.write(output)
